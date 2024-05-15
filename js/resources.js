@@ -2,6 +2,9 @@ import Upgrade from "./upgrade.js";
 
 export default class Resources{
     _list = {}
+    get(id){
+        return _list[id]
+    }
     constructor(p){
 
         // 0 sticks
@@ -108,6 +111,8 @@ export default class Resources{
 }
 
 class GameResource{
+    _owned = 0
+    _progress = 0
     constructor(p){
         this._id = p.id 
         this._name = p.name
@@ -125,6 +130,11 @@ class GameResource{
     updateValues(){
         //draw shit to html
     }
+    harvest(){
+        // fetch tool and do shit
+        // black magic fuckery
+        // use _progress to store remaining toughness
+    }
 }
 
 
@@ -137,6 +147,9 @@ class HarvestUpgrade extends Upgrade{
 class Craftable extends GameResource{
     constructor(p){
         super(p)
+    }
+    debug(){
+        console.log("Hello!!")
     }
 }
 class Harvestable extends GameResource{

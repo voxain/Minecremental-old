@@ -17,9 +17,9 @@ class Game{
     }
     init(){
         $("#backdrop-wood").on("click", () => {
-            console.log("action")
+            Actions.HarvestResource("wood")
         })
     }
 }
 
-new Game().init()
+export default new Game().init()
