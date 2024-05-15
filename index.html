@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecremental</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="/js/cash.min.js"></script>
+    <script src="/js/game.js"></script>
+    <script src="/js/craftables.js"></script>
+    <script src="/js/crafting.js"></script>
+    <script src="/js/tools.js"></script>
+</head>
+<body>
+    <div class="main-box">
+        <div class="tool box">
+            <div class="headline">
+                <div class="panel">
+                    Tool
+                </div>
+            </div>
+            <div class="image">
+                <img id="tool-image" src="/img/tools/hand.png" alt="">
+            </div>
+            <div class="headline">
+                <span id="tool-name">Hand</span>
+                <span id="tool-description" class="subtitle">Looks like it hurts.</span>
+                <span id="tool-level" class="subtitle">Mining Level: 0</span>
+            </div>
+            <div class="button" id="tool-upgradebutton" onclick="tool_upgrade()">
+                Upgrade (Cost 1 wood)
+            </div>
+        </div>
+
+
+        <div class="box">
+            <div class="headline">
+                <div class="panel">
+                    Crafting
+                </div>
+            </div>
+
+            <div class="crafting">
+                    
+                <!-- TODO: AUTO GENERATE -->
+                <div class="crafting-module content" id="backdrop-wood" onclick="craft('wood')">
+                    <div class="image">
+                        <!-- <img src="/img/craft/wood.png" onclick="craft('wood')" alt=""> -->
+                        🪵
+                    </div>
+                    <div class="item-info">
+                        <span>Wood</span>
+                        <span class="subtitle sub">Mining Level 0</span>
+                    </div>
+                    <div class="amount-info"id="amount-wood" >0</div>
+                </div>
+                
+
+                <div class="crafting-module content" id="backdrop-stone" onclick="craft('stone')">
+                    <div class="image">
+                        <!-- <img src="/img/craft/stone.png" alt=""> -->
+                        🪨
+                    </div>
+                    <div class="item-info">
+                        <span>Stone</span>
+                        <span class="subtitle sub">Mining Level 1</span>
+                    </div>
+                    <div class="amount-info"id="amount-stone" >0</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
