@@ -1,47 +1,70 @@
-game.tools = [
-    {
-        name: "Hand",
-        cost: [
-            ["wood", 1]
-        ],
-        description: "Looks like it hurts.",
-        mining_level: 0,
-        id: "hand"
-    },
-    {
-        name: "Primitive Pick",
-        cost: [
-            ["stone", 100]
-        ],
-        description: "Klonky boi",
-        mining_level: 1,
-        id: "pick_wood"
-    },
-]
+import Upgrade from "./upgrade.js"
 
-function tool_upgrade(){
-    let validate = true
-    game.tools[game.tool.current].cost.forEach(i => {
-        if(game.inventory[i[0]].amount < i[1]) {
-            alert("Not enough " + i[0])
-            validate = false
-        } 
-    });
-    if(validate){
-        game.tools[game.tool.current].cost.forEach(i => {
-            game.inventory.modify(i[0], -i[1])
-        });
-        game.tool.current++
-        let newtool = get_current_tool()
-    
-        $("#tool-image").attr("src", "/img/tools/" + newtool.id + ".png")
-        $("#tool-name").html(newtool.name)
-        $("#tool-description").html(newtool.description)
-        $("#tool-upgradebutton").html("Upgrade Cost " + newtool.cost.map(i => i[0] + ":" + i[1]))
-        $("#tool-level").html("Mining Level: " + newtool.mining_level)
+export default class Tools{
+    _list = {}
+    constructor(){
+
+        // 0 hand
+        this.addTool( new Tool(
+            {
+                id: "hand",
+                name: "Hand",
+                icon: "👊",
+                description: "This looks like it hurts.",
+                cost: 0,
+                miningLevel: 1,
+                miningPower: 0
+            }
+        ))
+        
+        // 2 axe_wood
+        this.addTool( new Tool(
+            {
+                id: "axe_wood",
+                name: "Makeshift Axe",
+                icon: "🪓",
+                description: "Looks like it could fall apart at any moment.",
+                cost: 10,
+                miningLevel: 2,
+                miningPower: 8 // mininglevel 2 only applies too wood anyways. Might aswell make the axe break wood faster
+            }
+        ))
+        
+        // 2 pick_wood
+        this.addTool( new Tool(
+            {
+                id: "pick_wood",
+                name: "Wooden Pick",
+                icon: "",
+                description: "It's a bit wonky, but it will turn a boulder into pieces.",
+                cost: 50,
+                miningLevel: 3,
+                miningPower: 4
+            }
+        ))
+
+    }
+    addTool(res) {
+        this._list[res.id] = res
     }
 }
 
-function get_current_tool(){
-    return game.tools[game.tool.current]
+class Tool{
+    constructor(p){
+        this._id = p.id
+        this._name = p.name
+        this._icon = p.icon
+        this._description = p.description
+        this._cost = p.cost
+        this._miningLevel = p.miningLevel
+        this._miningPower = p.miningPower
+
+        //this._upgrades = p.upgrades
+    }
+}
+
+class ToolUpgrade extends Upgrade{
+    constructor(p){
+        super(p)
+    }
 }
