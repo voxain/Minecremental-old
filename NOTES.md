@@ -2,7 +2,10 @@
 - Harvesting for materials
 - Refining for ores and ingots and power and shiz
 - Power generation and machinery
-- After MAX upgrade on harvesting, start "summoning"
+- After MAX upgrade on harvesting, start other techniques
+    - Start being able to build machines to "replicate" things more efficiently
+    - After that, start "summoning" items through macic
+    - ...
 
 - harvestable can only be farmed by tool with mining level >= 
 - better tools have better mining power, therefore going against the toughness value (subtractive)
