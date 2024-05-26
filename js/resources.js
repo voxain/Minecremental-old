@@ -151,6 +151,9 @@ class Craftable extends GameResource{
     debug(){
         console.log("Hello!!")
     }
+    interact(){
+        
+    }
 }
 class Harvestable extends GameResource{
     constructor(p){
